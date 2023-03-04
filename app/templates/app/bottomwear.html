@@ -1,0 +1,43 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block main-content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="list-group">
+                <a href="/bottomwears/" class="list-group-item list-group-item-action active" aria-current="true">
+                  All topwears
+                </a>
+                <a href="/bottomwears/{{'Lee'}}" class="list-group-item list-group-item-action">Lee</a>
+                <a href="/bottomwears/{{'Spykar'}}" class="list-group-item list-group-item-action">Spykar</a>
+                <hr>
+                <a href="/bottomwears/{{'Below'}}" class="list-group-item list-group-item-action">Below 500</a>
+                <a href="/bottomwears/{{'Above'}}" class="list-group-item list-group-item-action">Above 500</a>
+              </div>
+
+        </div>
+        <div class="col-sm-8">
+            <div class="row">
+                {% for product in bottomwears %}
+                 <div class="col-sm-4 text-center mb-4">
+                    <a href="/product-detail/{{product.id}}" class="btn">
+                        <div class="item">
+                            <img src="{{product.product_image.url}}" alt="" height="300" class="">
+                            <div class="fw-bold">{{product.title}}</div>
+                            <div class="fw-bold">{{product.discounted_price}}</div>
+
+                        </div>
+
+                    </a>
+
+                 </div>
+                {% endfor %}
+
+            </div>
+            
+
+        </div>
+    </div>
+
+</div>
+{% endblock main-content %}
